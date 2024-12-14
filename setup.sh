@@ -20,6 +20,9 @@ sudo usermod -d /mnt/vdb/ubuntu ubuntu
 
 # Ensure the mount is active
 sudo mount -a
+# Give user ubuntu read and write privileges to /mnt/vdb
+sudo chown -R ubuntu:ubuntu /mnt/vdb
+sudo chmod -R 755 /mnt/vdb
 
 # Create .ssh directory for user ubuntu
 sudo mkdir -p /mnt/vdb/ubuntu/.ssh
@@ -29,6 +32,7 @@ sudo chmod 700 /mnt/vdb/ubuntu/.ssh
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHsIq8PKQSEs+ZVTZnHoVi8vhpsS3jlELiWcY13kFtM6" | sudo tee /mnt/vdb/ubuntu/.ssh/authorized_keys
 sudo chmod 600 /mnt/vdb/ubuntu/.ssh/authorized_keys
 sudo chown -R ubuntu:ubuntu /mnt/vdb/ubuntu/.ssh
+
 
 # Setup server with required applications
 sudo apt update && sudo apt upgrade -y
@@ -48,4 +52,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Install pm2 globally using npm
 nvm install 20
-npm install -g pm2
+npm i pm2 -g
