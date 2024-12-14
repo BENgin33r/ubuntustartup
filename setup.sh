@@ -53,3 +53,5 @@ export NVM_DIR="$HOME/.nvm"
 # Install pm2 globally using npm
 nvm install 20
 npm i pm2 -g
+
+sudo reboot
